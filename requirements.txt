@@ -1,0 +1,14 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+crewai==0.19.0
+langgraph
+langchain
+langchain-openai
+langchain-community
+chromadb
+psycopg2-binary
+sqlalchemy
+python-dotenv
+pydantic>=2.0
+requests
+httpx
