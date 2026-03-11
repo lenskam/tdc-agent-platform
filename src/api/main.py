@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from .routes import agents
 from .routes import proposal_routes
 from .routes import training_routes
+from .routes import finance_routes
+from .routes import director_routes
 from ..database.postgres import engine, Base
 
 # Create database tables
@@ -16,6 +18,8 @@ app = FastAPI(
 app.include_router(agents.router, prefix="/api/v1/agents", tags=["agents"])
 app.include_router(proposal_routes.router, prefix="/api/v1/proposal", tags=["proposal"])
 app.include_router(training_routes.router, prefix="/api/v1/agents/training", tags=["training"])
+app.include_router(finance_routes.router, prefix="/api/v1/agents/finance", tags=["finance"])
+app.include_router(director_routes.router, prefix="/api/v1/agents/director", tags=["director"])
 
 @app.get("/")
 def read_root():

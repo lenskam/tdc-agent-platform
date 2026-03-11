@@ -5,9 +5,10 @@ import { AgentChat } from "../components/AgentChat";
 import { TaskBoard } from "../components/TaskBoard";
 import { DataAnalysis } from "../components/DataAnalysis";
 import { TrainingCenter } from "../components/TrainingCenter";
+import { GovernanceCenter } from "../components/GovernanceCenter";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"chat" | "board" | "data" | "training">("chat");
+  const [activeTab, setActiveTab] = useState<"chat" | "board" | "data" | "training" | "governance">("chat");
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-50">
@@ -38,6 +39,12 @@ export default function Home() {
           >
             Training Center
           </button>
+          <button
+            onClick={() => setActiveTab("governance")}
+            className={`px-4 py-2 rounded-md ${activeTab === "governance" ? "bg-blue-600 text-white" : "text-gray-600 hover:bg-gray-100"}`}
+          >
+            Governance
+          </button>
         </div>
       </header>
 
@@ -48,8 +55,10 @@ export default function Home() {
           <TaskBoard />
         ) : activeTab === "data" ? (
           <DataAnalysis />
-        ) : (
+        ) : activeTab === "training" ? (
           <TrainingCenter />
+        ) : (
+          <GovernanceCenter />
         )}
       </div>
     </main>
