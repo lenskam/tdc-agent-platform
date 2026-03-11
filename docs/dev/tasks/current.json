@@ -1,47 +1,40 @@
 {
-  "goal": "Implement Phase 3: Data & M&E Department - DHIS2 tools, Data Processor, Data Analyst Agent, and Dashboard integration",
-  "created_at": "2026-03-11T14:00:00Z",
+  "goal": "Implement Phase 5: Training & Research - Training Agent, Quiz Generator, User Manual Simplifier, Knowledge Search",
+  "created_at": "2026-03-11T16:00:00Z",
   "tasks": [
     {
       "id": 1,
-      "description": "Create src/tools/dhis2_tools.py with fetch_analytics and get_metadata functions",
+      "description": "Create src/tools/content_creator.py - Quiz generator and User manual simplifier",
       "status": "completed",
       "depends_on": [],
       "retries": 0
     },
     {
       "id": 2,
-      "description": "Create src/tools/data_processor.py with clean_dataset and detect_outliers functions",
+      "description": "Create src/tools/knowledge_search.py - Simplified RAG for SOPs and help docs",
       "status": "completed",
       "depends_on": [],
       "retries": 0
     },
     {
       "id": 3,
-      "description": "Create src/agents/data_agent.py - Senior Data Analyst Agent",
+      "description": "Create src/agents/training_agent.py - Technical Trainer agent",
       "status": "completed",
       "depends_on": [1, 2],
       "retries": 0
     },
     {
       "id": 4,
-      "description": "Add Data Analysis tab to dashboard",
+      "description": "Add Training Center tab to dashboard",
       "status": "completed",
-      "depends_on": [],
+      "depends_on": [3],
       "retries": 0
     },
     {
       "id": 5,
-      "description": "Add pandas to requirements.txt",
-      "status": "completed",
-      "depends_on": [],
-      "retries": 0
-    },
-    {
-      "id": 6,
       "description": "Run typecheck and lint to verify all changes",
       "status": "completed",
-      "depends_on": [1, 2, 3, 4, 5],
+      "depends_on": [1, 2, 3, 4],
       "retries": 0
     }
   ]
