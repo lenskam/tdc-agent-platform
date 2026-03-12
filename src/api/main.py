@@ -4,6 +4,9 @@ from .routes import proposal_routes
 from .routes import training_routes
 from .routes import finance_routes
 from .routes import director_routes
+from .routes import auth
+from .routes import tasks
+from .routes import approvals
 from ..database.postgres import engine, Base
 
 # Create database tables
@@ -20,7 +23,14 @@ app.include_router(proposal_routes.router, prefix="/api/v1/proposal", tags=["pro
 app.include_router(training_routes.router, prefix="/api/v1/agents/training", tags=["training"])
 app.include_router(finance_routes.router, prefix="/api/v1/agents/finance", tags=["finance"])
 app.include_router(director_routes.router, prefix="/api/v1/agents/director", tags=["director"])
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
+app.include_router(tasks.router, prefix="/api/v1/tasks", tags=["tasks"])
+app.include_router(approvals.router, prefix="/api/v1/approvals", tags=["approvals"])
 
 @app.get("/")
 def read_root():
     return {"message": "TDC Agent Platform is running"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}

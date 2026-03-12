@@ -6,11 +6,12 @@ import { TaskBoard } from "../components/TaskBoard";
 import { DataAnalysis } from "../components/DataAnalysis";
 import { TrainingCenter } from "../components/TrainingCenter";
 import { GovernanceCenter } from "../components/GovernanceCenter";
+import { ApprovalQueue } from "../components/ApprovalQueue";
 import { ProtectedRoute } from "../components/ProtectedRoute";
 import { useAuth } from "../components/AuthContext";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"chat" | "board" | "data" | "training" | "governance">("chat");
+  const [activeTab, setActiveTab] = useState<"chat" | "board" | "data" | "training" | "governance" | "approvals">("chat");
   const { user, logout } = useAuth();
 
   return (
@@ -52,6 +53,16 @@ export default function Home() {
               Task Board
             </button>
             <button
+              onClick={() => setActiveTab("approvals")}
+              className={`px-4 py-3 text-sm font-medium border-b-2 ${
+                activeTab === "approvals"
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              Approvals
+            </button>
+            <button
               onClick={() => setActiveTab("data")}
               className={`px-4 py-3 text-sm font-medium border-b-2 ${
                 activeTab === "data"
@@ -89,6 +100,8 @@ export default function Home() {
             <AgentChat />
           ) : activeTab === "board" ? (
             <TaskBoard />
+          ) : activeTab === "approvals" ? (
+            <ApprovalQueue />
           ) : activeTab === "data" ? (
             <DataAnalysis />
           ) : activeTab === "training" ? (
