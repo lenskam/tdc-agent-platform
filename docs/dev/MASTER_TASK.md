@@ -9,6 +9,7 @@ Implementation Plans:
 - [Phase 4: Engineering/DevOps], see @docs/dev/PHASE_4_IMP_PLAN.md
 - [Phase 5: Training Agent], see @docs/dev/PHASE_5_IMP_PLAN.md
 - [Phase 6: Security & Governance], see @docs/dev/PHASE_6_IMP_PLAN.md
+- [Phase 7: MVP Launch], see @docs/dev/artifacts/MVP_LAUNCH_PLAN.md
 
 ## 🧠 Phase 1: Core Framework & Project Manager Agent
 
@@ -94,3 +95,110 @@ Implementation Plans:
 - [ ] **Security Hardening**
   - [ ] Implement RBAC for Agents (`src/core/security.py`)
   - [ ] Audit Logging
+
+---
+
+## 🚀 Phase 7: MVP Launch
+
+*See: docs/dev/artifacts/MVP_LAUNCH_PLAN.md*
+
+### Phase 7.1: Core Infrastructure (Week 1-2)
+
+*See: docs/dev/artifacts/MVP_PHASE_1_CORE_INFRASTRUCTURE.md*
+
+- [ ] **Orchestrator Module** (`src/orchestrator/`)
+  - [ ] Task intake API endpoint
+  - [ ] Task router (task_type → agent mapping)
+  - [ ] State manager (track task status)
+  - [ ] Agent execution launcher
+  - [ ] Basic failure detection
+
+- [ ] **Database Schema Extension** (`src/database/models.py`)
+  - [ ] User model
+  - [ ] Agent model
+  - [ ] Workflow model
+  - [ ] WorkflowExecution model
+  - [ ] ApprovalRequest model
+  - [ ] ApprovalDecision model
+  - [ ] AuditLog model
+
+- [ ] **Authentication System** (`src/auth/`)
+  - [ ] User registration endpoint
+  - [ ] Login endpoint (returns JWT)
+  - [ ] JWT validation middleware
+  - [ ] Role-based access control
+
+- [ ] **Task Queue** (`src/queue/`)
+  - [ ] Redis connection setup
+  - [ ] Task producer (enqueue tasks)
+  - [ ] Task consumer (dequeue and process)
+  - [ ] Basic retry logic (3 attempts)
+
+- [ ] **Dashboard Updates**
+  - [ ] Login page
+  - [ ] Protected routes (require auth)
+  - [ ] Task creation form
+
+### Phase 7.2: Human-in-the-Loop (Week 3)
+
+*See: docs/dev/artifacts/MVP_PHASE_2_HUMAN_IN_THE_LOOP.md*
+
+- [ ] **Approval System**
+  - [ ] Approval request creation
+  - [ ] Approval status tracking
+  - [ ] Approval decision recording
+
+- [ ] **Approval Dashboard**
+  - [ ] Approval queue display
+  - [ ] Approve/Reject buttons
+  - [ ] Task details view
+  - [ ] Decision history
+
+- [ ] **Approval Enforcement**
+  - [ ] Block task execution until approved
+  - [ ] Notify users of pending approvals
+
+- [ ] **Agent Updates**
+  - [ ] Flag high-risk tool calls
+  - [ ] Request approval before execution
+
+### Phase 7.3: Observability & Logging (Week 4)
+
+*See: docs/dev/artifacts/MVP_PHASE_3_OBSERVABILITY.md*
+
+- [ ] **Logging Infrastructure**
+  - [ ] Structured logging (JSON format)
+  - [ ] Log levels (DEBUG, INFO, WARN, ERROR)
+
+- [ ] **Audit Logging**
+  - [ ] Log all authentication events
+  - [ ] Log all approval decisions
+  - [ ] Log task state changes
+
+- [ ] **Health Checks**
+  - [ ] `/health` endpoint
+  - [ ] Database connectivity check
+  - [ ] Redis connectivity check
+
+- [ ] **Dashboard Updates**
+  - [ ] Task history view
+  - [ ] Basic analytics
+
+### Phase 7.4: Testing & Documentation (Week 5)
+
+*See: docs/dev/artifacts/MVP_PHASE_4_TESTING_DOCS.md*
+
+- [ ] **Testing**
+  - [ ] API endpoint tests
+  - [ ] Authentication tests
+  - [ ] E2E dashboard tests
+
+- [ ] **Documentation**
+  - [ ] User Guide
+  - [ ] API Documentation
+  - [ ] Deployment Guide
+
+- [ ] **Launch Preparation**
+  - [ ] Production environment setup
+  - [ ] Backup strategy
+  - [ ] Basic runbook

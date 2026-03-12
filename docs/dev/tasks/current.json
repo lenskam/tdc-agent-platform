@@ -1,40 +1,61 @@
 {
-  "goal": "Implement Phase 5: Training & Research - Training Agent, Quiz Generator, User Manual Simplifier, Knowledge Search",
-  "created_at": "2026-03-11T16:00:00Z",
+  "goal": "Implement Phase 6: Security & Governance - Finance Agent, Director Agent, Audit Tools, RBAC",
+  "created_at": "2026-03-11T17:00:00Z",
   "tasks": [
     {
       "id": 1,
-      "description": "Create src/tools/content_creator.py - Quiz generator and User manual simplifier",
-      "status": "completed",
+      "description": "Create src/tools/finance_tools.py - Read-only budget and donor compliance tools",
+      "status": "pending",
       "depends_on": [],
       "retries": 0
     },
     {
       "id": 2,
-      "description": "Create src/tools/knowledge_search.py - Simplified RAG for SOPs and help docs",
-      "status": "completed",
+      "description": "Create src/tools/audit_tools.py - Log anomaly detection and compliance verification",
+      "status": "pending",
       "depends_on": [],
       "retries": 0
     },
     {
-      "id": 3,
-      "description": "Create src/agents/training_agent.py - Technical Trainer agent",
-      "status": "completed",
-      "depends_on": [1, 2],
+      "id": "3",
+      "description": "Create src/tools/director_tools.py - Cross-agent log query and risk summarization",
+      "status": "pending",
+      "depends_on": [],
       "retries": 0
     },
     {
       "id": 4,
-      "description": "Add Training Center tab to dashboard",
-      "status": "completed",
-      "depends_on": [3],
+      "description": "Create src/core/security.py - Role-Based Access Control for agents",
+      "status": "pending",
+      "depends_on": [],
       "retries": 0
     },
     {
       "id": 5,
+      "description": "Create src/agents/finance_agent.py - Financial Controller agent",
+      "status": "pending",
+      "depends_on": [1],
+      "retries": 0
+    },
+    {
+      "id": 6,
+      "description": "Create src/agents/director_agent.py - Strategic Advisor agent",
+      "status": "pending",
+      "depends_on": [3],
+      "retries": 0
+    },
+    {
+      "id": 7,
+      "description": "Add Governance tab to dashboard",
+      "status": "pending",
+      "depends_on": [5, 6],
+      "retries": 0
+    },
+    {
+      "id": 8,
       "description": "Run typecheck and lint to verify all changes",
-      "status": "completed",
-      "depends_on": [1, 2, 3, 4],
+      "status": "pending",
+      "depends_on": [1, 2, 3, 4, 5, 6, 7],
       "retries": 0
     }
   ]
