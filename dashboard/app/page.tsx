@@ -3,15 +3,17 @@
 import { useState } from "react";
 import { AgentChat } from "../components/AgentChat";
 import { TaskBoard } from "../components/TaskBoard";
+import { TaskHistory } from "../components/TaskHistory";
 import { DataAnalysis } from "../components/DataAnalysis";
 import { TrainingCenter } from "../components/TrainingCenter";
 import { GovernanceCenter } from "../components/GovernanceCenter";
 import { ApprovalQueue } from "../components/ApprovalQueue";
+import { AuditLogsViewer } from "../components/AuditLogsViewer";
 import { ProtectedRoute } from "../components/ProtectedRoute";
 import { useAuth } from "../components/AuthContext";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"chat" | "board" | "data" | "training" | "governance" | "approvals">("chat");
+  const [activeTab, setActiveTab] = useState<"chat" | "board" | "history" | "data" | "training" | "governance" | "approvals" | "audit">("chat");
   const { user, logout } = useAuth();
 
   return (
@@ -53,6 +55,16 @@ export default function Home() {
               Task Board
             </button>
             <button
+              onClick={() => setActiveTab("history")}
+              className={`px-4 py-3 text-sm font-medium border-b-2 ${
+                activeTab === "history"
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              History
+            </button>
+            <button
               onClick={() => setActiveTab("approvals")}
               className={`px-4 py-3 text-sm font-medium border-b-2 ${
                 activeTab === "approvals"
@@ -92,6 +104,16 @@ export default function Home() {
             >
               Governance
             </button>
+            <button
+              onClick={() => setActiveTab("audit")}
+              className={`px-4 py-3 text-sm font-medium border-b-2 ${
+                activeTab === "audit"
+                  ? "border-blue-600 text-blue-600"
+                  : "border-transparent text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              Audit Logs
+            </button>
           </div>
         </nav>
 
@@ -100,12 +122,16 @@ export default function Home() {
             <AgentChat />
           ) : activeTab === "board" ? (
             <TaskBoard />
+          ) : activeTab === "history" ? (
+            <TaskHistory />
           ) : activeTab === "approvals" ? (
             <ApprovalQueue />
           ) : activeTab === "data" ? (
             <DataAnalysis />
           ) : activeTab === "training" ? (
             <TrainingCenter />
+          ) : activeTab === "audit" ? (
+            <AuditLogsViewer />
           ) : (
             <GovernanceCenter />
           )}
