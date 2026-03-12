@@ -29,8 +29,8 @@ Implementation Plans:
   - [x] **Tools**: PDF Report Generation
 
 - [x] **Testing & Quality**
-  - [ ] Unit Tests for PM Agent
-  - [ ] Integration Tests (Agent -> DB)
+  - [x] Unit Tests for PM Agent
+  - [x] Integration Tests (Agent -> DB)
   - [x] Dashboard E2E Tests (Playwright)
 
 ## 📄 Phase 2: Proposal & Business Development
@@ -42,7 +42,7 @@ Implementation Plans:
   - [x] Implement `ProposalWriterAgent` class
   - [x] **Tools**: Past Proposal Search
   - [x] **Tools**: CV Matcher
-  - [ ] **Tools**: Template Filler
+  - [x] **Tools**: Template Filler
 
 - [x] **API Routes**
   - [x] POST /proposal/draft
@@ -53,48 +53,48 @@ Implementation Plans:
 
 ## 📊 Phase 3: Data & M&E Department
 
-- [ ] **Data Infrastructure**
-  - [ ] DHIS2 Connector Tool (`src/tools/dhis2_tools.py`)
-  - [ ] Data Cleaning Utilities (Pandas wrapper)
-- [ ] **Data Analyst Agent**
-  - [ ] Implement `DataAnalystAgent` class
-  - [ ] **Tools**: Anomaly Detector
-  - [ ] **Tools**: Descriptive Statistics Generator
-- [ ] **Dashboard Integration**
-  - [ ] Add Data Analysis Tab/Upload
+- [x] **Data Infrastructure**
+  - [x] DHIS2 Connector Tool (`src/tools/dhis2_tools.py`)
+  - [x] Data Cleaning Utilities (Pandas wrapper)
+- [x] **Data Analyst Agent**
+  - [x] Implement `DataAnalystAgent` class
+  - [x] **Tools**: Anomaly Detector
+  - [x] **Tools**: Descriptive Statistics Generator
+- [x] **Dashboard Integration**
+  - [x] Add Data Analysis Tab/Upload
 
 ## 💻 Phase 4: Engineering & Automation
 
-- [ ] **Developer Agent**
-  - [ ] Implement `DeveloperAgent` class
-  - [ ] **Tools**: Git Operations (Branch, PR)
-  - [ ] **Tools**: Code Linter/Formatter
-  - [ ] Sandbox Environment (`src/core/sandbox.py`)
-- [ ] **DevOps Agent**
-  - [ ] Implement `DevOpsAgent` class
-  - [ ] **Tools**: Log Analyzer
-  - [ ] **Tools**: Docker/System status
+- [x] **Developer Agent**
+  - [x] Implement `DeveloperAgent` class
+  - [x] **Tools**: Git Operations (Branch, PR)
+  - [x] **Tools**: Code Linter/Formatter
+  - [x] Sandbox Environment (`src/core/sandbox.py`)
+- [x] **DevOps Agent**
+  - [x] Implement `DevOpsAgent` class
+  - [x] **Tools**: Log Analyzer
+  - [x] **Tools**: Docker/System status
 
 ## 🎓 Phase 5: Training & Research
 
-- [ ] **Training Agent**
-  - [ ] Implement `TrainingAgent` class
-  - [ ] **Tools**: Quiz Generator
-  - [ ] **Tools**: User Manual Simplifier
-  - [ ] **Tools**: Knowledge Base Search
+- [x] **Training Agent**
+  - [x] Implement `TrainingAgent` class
+  - [x] **Tools**: Quiz Generator
+  - [x] **Tools**: User Manual Simplifier
+  - [x] **Tools**: Knowledge Base Search
 
 ## 🛡️ Phase 6: Security & Governance
 
-- [ ] **Finance Agent**
-  - [ ] Implement `FinanceAgent` class
-  - [ ] **Tools**: Budget Reader (Read-Only)
-  - [ ] **Tools**: Compliance Checker
-- [ ] **Director Agent**
-  - [ ] Implement `DirectorAgent` class
-  - [ ] **Tools**: Cross-Agent Summary
-- [ ] **Security Hardening**
-  - [ ] Implement RBAC for Agents (`src/core/security.py`)
-  - [ ] Audit Logging
+- [x] **Finance Agent**
+  - [x] Implement `FinanceAgent` class
+  - [x] **Tools**: Budget Reader (Read-Only)
+  - [x] **Tools**: Compliance Checker
+- [x] **Director Agent**
+  - [x] Implement `DirectorAgent` class
+  - [x] **Tools**: Cross-Agent Summary
+- [x] **Security Hardening**
+  - [x] Implement RBAC for Agents (`src/core/security.py`)
+  - [x] Audit Logging
 
 ---
 
