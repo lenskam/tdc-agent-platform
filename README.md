@@ -80,10 +80,10 @@ cd tdc-agent-platform
 docker-compose up -d
 
 # Access the dashboard
-open http://localhost:3000
+open http://localhost:3001
 
 # Access the API
-open http://localhost:8000
+open http://localhost:8001
 ```
 
 ### Manual Setup
@@ -115,7 +115,7 @@ cd dashboard
 npm install
 
 # Create environment file
-echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
+echo "NEXT_PUBLIC_API_URL=http://localhost:8001" > .env.local
 
 # Run development server
 npm run dev

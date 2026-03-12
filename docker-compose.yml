@@ -5,16 +5,36 @@ services:
     build: .
     container_name: tdc-backend
     ports:
-      - "8000:8000"
+      - "${API_PORT:-8001}:8000"
     volumes:
       - .:/app
     environment:
       - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
       - CHROMA_PERSIST_DIRECTORY=/app/chroma_db
     env_file:
       - .env
     depends_on:
       - db
+      - redis
+    networks:
+      - tdc-network
+
+  dashboard:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    container_name: tdc-dashboard
+    ports:
+      - "${DASHBOARD_PORT:-3001}:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:${API_PORT:-8001}
+    env_file:
+      - ./dashboard/.env.local
+    depends_on:
+      - backend
     networks:
       - tdc-network
 
@@ -29,7 +49,16 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5434}:5432"
+    networks:
+      - tdc-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: tdc-redis
+    restart: always
+    ports:
+      - "${REDIS_PORT:-6380}:6379"
     networks:
       - tdc-network
 
