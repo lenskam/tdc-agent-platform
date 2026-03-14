@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 interface User {
@@ -41,12 +41,27 @@ function getInitialAuth() {
   return { token: null, user: null };
 }
 
-const initialAuth = getInitialAuth();
-
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(initialAuth.user);
-  const [token, setToken] = useState<string | null>(initialAuth.token);
+  const [user, setUser] = useState<User | null>(null);
+  const [token, setToken] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("auth_token");
+    const storedUser = localStorage.getItem("user");
+    
+    if (storedToken && storedUser) {
+      try {
+        setToken(storedToken);
+        setUser(JSON.parse(storedUser));
+      } catch {
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user");
+      }
+    }
+    setIsMounted(true);
+  }, []);
 
   const login = (newToken: string, newUser: User) => {
     localStorage.setItem("auth_token", newToken);
@@ -71,7 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         user,
         token,
-        isLoading: false,
+        isLoading: !isMounted,
         login,
         logout,
         isAuthenticated: !!token && !!user,
